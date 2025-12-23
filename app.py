@@ -1,13 +1,70 @@
+
+Copy
+
 # BLS Dashboard
 # Trenton Sedlacek ECON 8320
 
 import streamlit as st
+import streamlit.components.v1 as components
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import os
 
 st.set_page_config(page_title="BLS Dashboard", layout="wide")
+
+# LinkedIn badge function  <-- ADD THIS FUNCTION
+def linkedin_badge():
+    return """
+    <div style="
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        background: white;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    ">
+        <div style="
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0077b5 0%, #00a0dc 100%);
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: white;
+            font-weight: bold;
+        ">TS</div>
+        <h3 style="margin: 0 0 4px 0; font-size: 16px; color: #000;">Trenton Sedlacek</h3>
+        <p style="margin: 0 0 8px 0; font-size: 12px; color: #666; line-height: 1.4;">
+            M.S. Biostatistics Candidate<br>
+            University of Nebraska Medical Center
+        </p>
+        <p style="margin: 0 0 12px 0; font-size: 11px; color: #888;">
+            Nebraska DHHS | Statistics • R • Python
+        </p>
+        <a href="https://www.linkedin.com/in/trentonsedlacek" target="_blank" style="
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #0077b5;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+        ">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="white">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+            View Profile
+        </a>
+    </div>
+    """
 
 # the 11 supersectors (they dont overlap so they add up to total nonfarm)
 SECTORS = {
@@ -74,6 +131,10 @@ max_date = df["date"].max().date()
 
 # sidebar stuff
 with st.sidebar:
+    # LinkedIn Badge at the top  <-- ADD THIS
+    components.html(linkedin_badge(), height=250)
+    st.markdown("---")
+    
     st.header("Controls")
     
     date_range = st.slider(
