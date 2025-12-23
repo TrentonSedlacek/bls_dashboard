@@ -395,4 +395,4 @@ with st.expander("Raw Data"):
     st.download_button("Download CSV", filtered.to_csv(index=False), "bls_data.csv")
 
 st.markdown("---")
-st.caption("Data: U.S. Bureau of Labor Statistics | Trenton Sedlacek | ECON 8320")
+st.caption("Data: U.S. Bureau of Labor Statistics | Trenton Sedlacek")
