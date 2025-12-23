@@ -1,6 +1,3 @@
-
-Copy
-
 # BLS Dashboard
 # Trenton Sedlacek ECON 8320
 
