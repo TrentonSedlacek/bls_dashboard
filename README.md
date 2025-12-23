@@ -1,8 +1,6 @@
 # BLS Dashboard
 
 Trenton Sedlacek
-ECON 8320 Final Project
-
 Live: https://blsdashboard-trenton.streamlit.app/
 
 ## About
@@ -24,10 +22,11 @@ Pulls from the BLS API:
 
 ## Files
 
-- `app.py` is the dashboard
-- `collect_data.py` pulls from BLS
-- `data/bls_data.csv` is the data
 - `.github/workflows/update_data.yml` runs the monthly update
+- `collect_data.py` pulls from BLS
+- `data/bls_data.csv` is the most recentdata
+- `app.py` builds the dashboard
+
 
 ## Run locally
 
